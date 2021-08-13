@@ -1,7 +1,7 @@
 {
-  "name": "express-example-starter",
+  "name": "leetcode-api",
   "version": "1.0.0",
-  "description": "An Express-based application skeleton",
+  "description": "",
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js localhost 8080"
@@ -15,8 +15,5 @@
   "devDependencies": {
     "nodemon": "1.18.4"
   },
-  "keywords": [
-    "expressjs",
-    "express"
-  ]
+  "keywords": []
 }
