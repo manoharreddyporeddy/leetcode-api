@@ -4,6 +4,7 @@
   "description": "An Express-based application skeleton",
   "main": "app.js",
   "scripts": {
+    "install2": "npm install",
     "start": "nodemon app.js localhost 8080"
   },
   "dependencies": {
