@@ -3,14 +3,27 @@ var router = express.Router();
 const fetch = require("node-fetch");
 
 var { requests } = require("../services/urls");
-let { url, method, headers, body } = requests.getContestRankingData;
 // console.log(url, method, headers, body);
 
 router.get("/", function (req, res, next) {
     res.send("user-profile get ... ");
 });
 
-const fetchData = async () => {
+const fetchData = async (req, res) => {
+    let {
+        operationName = "getContestRankingData", // with default
+        username = "pgmreddy", // with default
+    } = req.body;
+
+    let { url, method, headers, body } = JSON.parse(JSON.stringify(requests.getContestRankingData));
+
+    headers.referer = headers.referer.replace("{USER_NAME}", username);
+    body.variables.username = body.variables.username.replace("{USER_NAME}", username);
+
+    console.log(username);
+    console.log(headers);
+    console.log(body);
+
     const response = await fetch(
         url, //
         {
@@ -47,13 +60,8 @@ router.post("/", async function (req, res, next) {
     //     // headers: req.headers,
     //     body: req.body,
     // };
-    let body = req.body;
-    let {
-        operationName = "getContestRankingData", //
-        username = "pgmreddy",
-    } = body;
 
-    let a = await fetchData();
+    let a = await fetchData(req, res);
     console.log(a);
 
     res.send(a);

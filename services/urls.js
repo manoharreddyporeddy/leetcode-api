@@ -15,7 +15,7 @@ module.exports = {
                 "content-type": "application/json",
                 cookie: "csrftoken=gnCOd92OzuloDgIUAOE2i3p2zoNbIApcdjoriff8Sjq9GSsiSi6r0xTM7IDzxROa; _ga=GA1.2.1730417220.1628823484; _gid=GA1.2.559850312.1628823484; _gat=1",
                 origin: "https://leetcode.com",
-                referer: "https://leetcode.com/pgmreddy/",
+                referer: "https://leetcode.com/{USER_NAME}/",
                 "sec-ch-ua": '"Chromium";v="92", " Not A;Brand";v="99", "Google Chrome";v="92"',
                 "sec-ch-ua-mobile": "?0",
                 "sec-fetch-dest": "empty",
@@ -29,7 +29,7 @@ module.exports = {
             body: {
                 operationName: "getContestRankingData",
                 variables: {
-                    username: "pgmreddy",
+                    username: "{USER_NAME}",
                 },
                 query: "query getContestRankingData($username: String!) {\n  userContestRanking(username: $username) {\n    attendedContestsCount\n    rating\n    globalRanking\n    __typename\n  }\n  userContestRankingHistory(username: $username) {\n    contest {\n      title\n      startTime\n      __typename\n    }\n    rating\n    ranking\n    __typename\n  }\n}\n",
             },
