@@ -6,22 +6,26 @@ var { requests } = require("../services/urls");
 // console.log(url, method, headers, body);
 
 router.get("/", function (req, res, next) {
-    res.send("user-profile get ... ");
+    res.send("contest-rating get ... ");
 });
 
 const fetchData = async (req, res) => {
     let {
-        operationName = "getUserProfile", // with default
+        operationName = "getContestRankingData", // with default
         username = "pgmreddy", // with default
     } = req.body;
 
+    // let {
+    //     operationName = "getUserProfile", // with default
+    //     username = "pgmreddy", // with default
+    // } = req.body
 
-    let { url, method, headers, body } = JSON.parse(JSON.stringify(requests.getUserProfile));
+    let { url, method, headers, body } = JSON.parse(JSON.stringify(requests.getContestRankingData));
 
     headers.referer = headers.referer.replace("{USER_NAME}", username);
     body.variables.username = body.variables.username.replace("{USER_NAME}", username);
 
-    // console.log(username);
+    console.log(username);
     // console.log(headers);
     // console.log(body);
 

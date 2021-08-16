@@ -4,7 +4,8 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var cors = require('cors')
 
-var userProfileRouter = require("./routes/user-profile");
+var contestRatingRouter = require("./routes/contest-rating");
+var userProfileRouter =  require("./routes/user-profile");
 
 var app = express();
 
@@ -15,6 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use("/contest-rating", contestRatingRouter);
 app.use("/user-profile", userProfileRouter);
 
 var listener = app.listen(3001, function () {
