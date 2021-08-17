@@ -6,6 +6,8 @@ var cors = require('cors')
 
 var contestRatingRouter = require("./routes/contest-rating");
 var userProfileRouter =  require("./routes/user-profile");
+var recentPostsRouter = require("./routes/recent-posts");
+var recentSubmissionRouter = require("./routes/recent-submission");
 
 var app = express();
 
@@ -18,6 +20,8 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/contest-rating", contestRatingRouter);
 app.use("/user-profile", userProfileRouter);
+app.use("/recent-posts", recentPostsRouter);
+app.use("/recent-submission", recentSubmissionRouter);
 
 var listener = app.listen(3001, function () {
     console.log("Listening on port " + listener.address().port);
