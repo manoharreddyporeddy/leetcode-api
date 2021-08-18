@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 const fetch = require("node-fetch");
 
-var { requests } = require("../services/urls");
+var { requests } = require("../services/requests");
 // console.log(url, method, headers, body);
 
 router.get("/", function (req, res, next) {
@@ -14,7 +14,6 @@ const fetchData = async (req, res) => {
         operationName = "getUserProfile", // with default
         username = "pgmreddy", // with default
     } = req.body;
-
 
     let { url, method, headers, body } = JSON.parse(JSON.stringify(requests.getUserProfile));
 
