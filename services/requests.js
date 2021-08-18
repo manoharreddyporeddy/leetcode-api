@@ -1,5 +1,5 @@
 var { common } = require("../__common");
-console.log("common", common.apiBaseUrl);
+// console.log("common", common.apiBaseUrl);
 
 module.exports = {
     requests: {

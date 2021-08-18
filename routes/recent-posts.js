@@ -41,7 +41,7 @@ const fetchData = async (req, res) => {
     );
 
     let resp = await response.json();
-    console.log(resp); // parses JSON response into native JavaScript objects
+    // console.log(resp); // parses JSON response into native JavaScript objects
     return resp;
 };
 
@@ -54,7 +54,7 @@ router.post("/", async function (req, res, next) {
     // };
 
     let a = await fetchData(req, res);
-    console.log(a);
+    // console.log(a);
 
     res.send(a);
 });

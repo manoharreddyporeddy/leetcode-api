@@ -3,7 +3,6 @@ var router = express.Router();
 const fetch = require("node-fetch");
 
 var { requests } = require("../services/requests");
-// console.log(url, method, headers, body);
 
 router.get("/", function (req, res, next) {
     res.send("contest-rating get ... ");
@@ -24,10 +23,6 @@ const fetchData = async (req, res) => {
 
     headers.referer = headers.referer.replace("{USER_NAME}", username);
     body.variables.username = body.variables.username.replace("{USER_NAME}", username);
-
-    console.log(username);
-    // console.log(headers);
-    // console.log(body);
 
     const response = await fetch(
         url, //
@@ -51,10 +46,6 @@ const fetchData = async (req, res) => {
     );
 
     let resp = await response.json();
-    // console.log("101", response);
-    // console.log(await response.text()); // parses JSON response into native JavaScript objects
-    console.log(resp); // parses JSON response into native JavaScript objects
-    // console.log("102");
     return resp;
 };
 
@@ -67,7 +58,6 @@ router.post("/", async function (req, res, next) {
     // };
 
     let a = await fetchData(req, res);
-    console.log(a);
 
     res.send(a);
 });
